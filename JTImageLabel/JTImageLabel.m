@@ -90,6 +90,11 @@
             self.textLabel.frame = CGRectMake(CGRectGetMaxX(self.imageView.frame) + self.space, 0, labelWidth, labelMaxHeight);
         }
     }
+    else if (self.textLabel.textAlignment == NSTextAlignmentNatural){
+        CGFloat height = MAX(imageHeight, labelMaxHeight);
+        self.imageView.frame = CGRectMake(0, imageY, imageWidth, height);
+        self.textLabel.frame = CGRectMake(CGRectGetMaxX(self.imageView.frame) + self.space, 0, labelMaxWidth, height);
+    }
     else{
         NSAssert(NO, @"JTImageLabel Alignement not supported");
     }
